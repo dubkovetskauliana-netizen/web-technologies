@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 5 - Інтерактивна карта України</title>
+</head>
+<body>
+
+<!-- Вирівнювання всього вмісту по центру вікна браузера -->
+<div align="center">
+
+    <h1>Інтерактивна карта України</h1>
+
+    <!-- Зображення карти з прив'язкою до тегу map через атрибут usemap -->
+    <p>
+        <img src="../img/maps-ukr.jpg"
+             alt="Карта областей України"
+             usemap="#ukraine_map"
+             border="0"
+             width="600">
+    </p>
+
+    <!-- Опис активних зон на карті -->
+    <map name="ukraine_map">
+        <!-- Чернівецька область -->
+        <area shape="circle" coords="240,360,25" alt="Чернівецька область" href="https://wikipedia.org" target="_blank">
+
+        <!-- Київська область -->
+        <area shape="circle" coords="330,160,35" alt="Київська область" href="https://wikipedia.org" target="_blank">
+
+        <!-- Львівська область -->
+        <area shape="circle" coords="110,210,35" alt="Львівська область" href="https://wikipedia.org" target="_blank">
+
+        <!-- Одеська область -->
+        <area shape="circle" coords="300,340,40" alt="Одеська область" href="https://wikipedia.org" target="_blank">
+    </map>
+
+    <br><br>
+
+    <!-- Кнопка повернення на головну -->
+    <p><a href="../index.html"><b>Повернутись на головну</b></a></p>
+
+</div>
+
+</body>
+</html>
