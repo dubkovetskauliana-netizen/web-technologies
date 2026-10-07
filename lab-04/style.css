@@ -1,0 +1,251 @@
+/* Пункт 2: Для всього контенту через універсальний селектор (*) */
+* {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    line-height: 40px; /* інтервал між текстом */
+}
+
+/* Пункт 3: Селектор тегів для всіх абзаців (зелений колір, центр) */
+p {
+    color: green;
+    text-align: center;
+}
+
+/* Пункт 3: Селектор тегів для всіх блочних елементів (по ширині) */
+div {
+    text-align: justify;
+}
+
+/* Пункт 4: Зміна кольору тексту на червоний для 1-го та 3-го абзаців */
+.custom-red {
+    color: red;
+}
+
+/* Пункт 5: Заборона перенесення рядків для 1-го абзацу */
+.single-line {
+    white-space: nowrap;
+}
+
+/* Пункт 6: Курсив та жирний текст для 2-го абзацу через ID */
+#italic-bold {
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Пункт 7: Тінь до тексту для 2-го абзацу та 2-го div */
+.text-shadow-effect {
+    text-shadow: 5px -5px 3px #555555;
+}
+
+/* Пункт 8: Стилі для першого блочного елемента (div) */
+.div-style-1 {
+    text-decoration: line-through; /* перекреслений */
+    text-transform: uppercase;     /* верхній регістр */
+    text-indent: 50px;             /* відступ першого рядка */
+}
+
+/* Пункт 9: Стилі для другого блочного елемента (div) */
+.div-style-2 {
+    letter-spacing: 30px; /* інтервал між символами */
+    word-spacing: 50px;   /* інтервал між словами */
+}
+
+/* ================= Стилі для Завдання №2 (Рецепт) ================= */
+
+/* Загальний контейнер рецепта для створення рамки навколо тексту */
+.recipe-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    border: 3px double #000000; /* Подвійна чорна рамка як на зразку */
+    text-align: center;
+    background-color: #ffffff;
+}
+
+/* Головний заголовок «Млинці з сиром» */
+.recipe-title {
+    color: red;
+    font-family: "Times New Roman", serif;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Підзаголовок «Продукти:» */
+.recipe-subtitle {
+    color: #000000;
+    font-family: "Times New Roman", serif;
+    font-style: italic;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* Список інгредієнтів */
+.ingredients-list p {
+    color: #000000;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 8px 0;
+    text-align: center; /* Центрування кожного рядка продуктів */
+}
+
+/* Клас для звичайного підкреслення тексту */
+.underlined {
+    text-decoration: underline;
+}
+
+/* Клас для жирного та підкресленого тексту (для рядка «Яйця – 2 шт.») */
+.underlined-bold {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* Клас для закреслення старих значень */
+.line-through {
+    text-decoration: line-through;
+}
+
+/* Жовте виділення фону для тексту «(можна не давати)» */
+.highlight {
+    background-color: yellow;
+}
+
+/* Зелена декоративна лінія перед фінальним текстом */
+.green-divider {
+    height: 4px;
+    background-color: green;
+    width: 60%;
+    margin: 25px auto;
+}
+
+/* Побажання внизу сторінки курсивом */
+.recipe-footer {
+    color: #000000;
+    font-family: "Times New Roman", serif;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+}
+
+
+
+/* ================= Стилі для Завдання №3 (Меню) ================= */
+
+/* Пункт 1: Усім посиланням меню задати фіолетовий колір тексту */
+.main-menu a {
+    color: purple;
+}
+
+/* Пункт 2: Лише пунктам головного меню задати зелений колір тексту */
+.main-menu .main-item {
+    color: green;
+    font-weight: bold;
+}
+
+/* Пункт 3: Змінити тип маркера останнього вкладеного списку (ягоди) на квадрат */
+.berries-list {
+    list-style-type: square;
+}
+
+/* Пункт 4: Змінити тип маркера другого вкладеного списку (овочі) на піктограму-галочку */
+.vegetables-list {
+    list-style-type: "✓ ";
+}
+
+/* Пункт 5: Прибрати маркери лише у фруктах (вкладений список) через комбінатор нащадків трьох тегів */
+.main-menu li ul.fruits-list {
+    list-style-type: none;
+}
+
+/* Пункт 6: Для посилань в останньому списку (ягоди) прибрати підкреслення через комбінатор нащадків класу та тегу */
+.berries-list a {
+    text-decoration: none;
+}
+
+/* Пункт 7: Для списку «Різне» задати внутрішнє розташування маркерів/нумерації */
+.various-list {
+    list-style-position: inside;
+}
+
+/* Додаткове вирівнювання тексту для списку «Різне» (як на зразку) */
+.various-list li {
+    font-family: "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+/* Робимо всі посилання в меню неклікабельними та прибираємо підкреслення */
+.main-menu a {
+    text-decoration: none;    /* прибирає підкреслення у всіх посилань */
+    pointer-events: none;     /* повністю вимикає клікабельність (посилання не реагують на натискання) */
+    cursor: default;          /* змінює курсор-ручку назад на звичайну стрілку */
+}
+
+
+
+/* ================= Стилі для Завдання №4 ================= */
+
+/* ПУНКТ 1: span всередині p з класом .text-background (комбінатор нащадків: пробіл) */
+p.text-background span {
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* ПУНКТ 2: span всередині p з класом .text-background, який лежить у div */
+div p.text-background span {
+    background-color: yellow;
+}
+
+/* ПУНКТ 3: span всередині інших span (комбінатор нащадків двох тегів) */
+span span {
+    background-color: gray;
+    text-decoration: line-through;
+}
+
+/* ПУНКТ 4: span всередині інших span, які знаходяться в нумерованому списку (ol) */
+ol span span {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+/* ПУНКТ 5: Абзаци (p) на першому рівні вкладеності в тезі section (дочірній комбінатор >) */
+section > p {
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    text-indent: 50px;
+}
+
+/* ПУНКТ 6: Марковані списки (ul), що розташовані безпосередньо в li (дочірній комбінатор >) */
+/* Замінимо маркер на зображення-галочку (використовуємо універсальне текстове або url-зображення) */
+li > ul {
+    list-style-image: url('data:image/svg+xml;utf8,<svg xmlns="http://w3.org" width="12" height="12" viewBox="0 0 24 24"><path fill="green" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>');
+}
+
+/* ПУНКТ 7: Абзаци з класом .text-background на першому рівні вкладеності в div */
+div > p.text-background {
+    word-spacing: 50px;
+}
+
+/* ПУНКТ 8: Абзаци на першому рівні вкладеності в div з класом .text-bold */
+div.text-bold > p {
+    font-weight: bold;
+}
+
+/* ПУНКТ 9: Абзаци на першому рівні вкладеності в section, яка є прямим нащадком div.text-bold */
+div.text-bold > section > p {
+    line-height: 45px;
+}
+
+/* ПУНКТ 10: Абзаци, розташовані відразу за img (суміжний сусідній комбінатор +) */
+img + p {
+    background-color: brown;
+    color: white; /* для кращої читабельності тексту на коричневому фоні */
+}
+
+/* ПУНКТ 11: Абзаци, розташовані після елемента section на тому ж рівні вкладеності (загальний сусідній комбінатор ~) */
+section ~ p {
+    color: red;
+}
