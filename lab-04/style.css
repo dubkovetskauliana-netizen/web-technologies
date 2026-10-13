@@ -249,3 +249,37 @@ img + p {
 section ~ p {
     color: red;
 }
+/* Базове скидання для вкладених списків */
+.main-menu > li > ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+/* 1-й список (Фрукти) — наприклад, без маркерів або коло колом */
+.main-menu > li:nth-child(1) > ul {
+    list-style-type: circle;
+}
+
+/* 2-й список (Овочі) — замість окремого класу робимо галочки */
+.main-menu > li:nth-child(2) > ul > li {
+    position: relative;
+    list-style: none; /* прибираємо стандартний маркер */
+    padding-left: 20px;
+}
+.main-menu > li:nth-child(2) > ul > li::before {
+    content: "✓"; /* додаємо галочку через псевдоелемент */
+    position: absolute;
+    left: 0;
+    color: green; /* колір галочки за бажанням */
+}
+
+/* 3-й список (Ягоди) — маркери-квадрати */
+.main-menu > li:nth-child(3) > ul {
+    list-style-type: square;
+}
+
+/* 4-й список (Різне) — стилізація нумерованого списку ol */
+.main-menu > li:nth-child(4) > ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
