@@ -1,0 +1,486 @@
+/* --- Загальні налаштування обнулення для списків --- */
+ul {
+    list-style-type: none; /* Вимикаємо стандартні маркери */
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Контейнер div --- */
+div {
+    background-color: rgb(255, 165, 0);
+    width: 500px;
+    padding: 20px;
+    color: white;
+    font-family: sans-serif;
+    box-sizing: border-box; /* Включаємо padding у ширину блоку */
+}
+
+/* --- Заголовок h1 --- */
+h1 {
+    font-size: 25px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+/* --- Маркерований список (загальні вимоги до іконок через background) --- */
+ul li {
+    background-repeat: no-repeat;
+    background-size: 24px 24px; /* Задаємо фіксований розмір іконки-маркера */
+}
+
+/* --- Маркерований список 1-го рівня --- */
+div > ul {
+    background-color: rgb(103, 158, 128);
+    padding-right: 20px;
+    padding-left: 50px;
+}
+
+div > ul > li {
+    /* Кастомна іконка для 1-го рівня */
+    background-image: url('icons/task_alt.png');
+    background-position: left 10px center;
+}
+
+/* --- Маркерований список 2-го рівня --- */
+div > ul > li > ul {
+    background-color: rgb(153, 180, 102);
+}
+
+div > ul > li > ul > li {
+    margin-bottom: 10px; /* Зовнішній відступ знизу */
+    padding-left: 40px;  /* Внутрішній відступ ліворуч до позначення */
+    background-position: left 8px center;
+}
+
+/* Шлях до іконок для кожного пункту підсписку з папки icons/ */
+div > ul > li:nth-child(1) > ul > li:nth-child(1) { background-image: url('icons/map.png'); }
+div > ul > li:nth-child(1) > ul > li:nth-child(2) { background-image: url('icons/flight.png'); }
+div > ul > li:nth-child(1) > ul > li:nth-child(3) { background-image: url('icons/hotel.png'); }
+div > ul > li:nth-child(1) > ul > li:nth-child(4) { background-image: url('icons/car.png'); }
+
+div > ul > li:nth-child(2) > ul > li:nth-child(1) { background-image: url('icons/bar.png'); }
+div > ul > li:nth-child(2) > ul > li:nth-child(2) { background-image: url('icons/casino.png'); }
+div > ul > li:nth-child(2) > ul > li:nth-child(3) { background-image: url('icons/museum.png'); }
+div > ul > li:nth-child(2) > ul > li:nth-child(4) { background-image: url('icons/festival.png'); }
+
+
+/* --- Загальні властивості елемента span --- */
+span {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: inline-block; /* Рядково-блочний тип */
+}
+
+/* --- Елемент span в маркерованому списку 1-го рівня --- */
+div > ul > li > span {
+    font-size: 20px;
+    font-weight: 700;
+    background-color: rgb(199, 124, 106);
+    margin-bottom: 10px;
+}
+
+/* --- Елемент span в маркерованому списку 2-го рівня --- */
+div > ul > li > ul > li > span {
+    font-size: 18px;
+    font-style: italic; /* Шрифт - курсив */
+    background-color: rgb(218, 106, 32);
+}
+/* ==========================================================================
+   Стилі для Завдання 2 (Таблиця тарифів)
+   ========================================================================== */
+
+/* Загальні налаштування таблиці */
+table {
+    width: 100%;
+    max-width: 900px;
+    border-collapse: collapse; /* Прибираємо подвійні рамки */
+    font-family: Arial, sans-serif;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Налаштування для всіх комірок таблиці */
+th, td {
+    padding: 15px 20px;
+    font-size: 18px;
+    border: 2px solid white; /* Білі роздільні лінії між комірками */
+}
+
+/* Стилізація першої колонки (назви послуг) - робимо текст вирівняним по лівому краю */
+table tr td:first-child {
+    text-align: left;
+    font-weight: normal;
+    color: white;
+}
+
+/* Колір тексту для всіх інших комірок із плюсами та мінусами */
+table tr td:not(:first-child) {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* --- Рядки таблиці (чергування кольорів фону для адаптивності) --- */
+/* Усі непарні рядки з даними (1-й, 3-й, 5-й...) */
+table tr:nth-child(odd) td {
+    background-color: rgb(215, 144, 142);
+}
+
+/* Усі парні рядки з даними (2-й, 4-й...) */
+table tr:nth-child(even) td {
+    background-color: rgb(235, 194, 193);
+}
+
+
+/* --- Колірна гамма шапки таблиці (від найсвітлішого до найтемнішого) --- */
+table th {
+    color: white;
+    font-weight: bold;
+}
+
+/* 1-а колонка шапки */
+table th:nth-child(1) { background-color: rgb(235, 194, 193); }
+
+/* 2-а колонка шапки (Starter) */
+table th:nth-child(2) { background-color: rgb(215, 144, 142); }
+
+/* 3-я колонка шапки (Economy) */
+table th:nth-child(3) { background-color: rgb(180, 110, 110); }
+
+/* 4-я колонка шапки (Standard) */
+table th:nth-child(4) { background-color: rgb(145, 65, 65); }
+
+/* 5-я колонка шапки (Professional) */
+table th:nth-child(5) { background-color: rgb(95, 40, 43); }
+
+/* ==========================================================================
+   Стилі для Завдання 3 (Форма анкети)
+   ========================================================================== */
+form {
+    background-color: #f4f7f6;
+    max-width: 450px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2b7a78;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #17252a;
+}
+
+
+/* ==========================================================================
+   Стилі для Завдання 4 (Градієнтні блоки)
+   ========================================================================== */
+
+/* Загальна обгортка для блоків */
+section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Спільні налаштування для всіх 4-х блоків */
+section > div {
+    display: inline-block; /* Розташування в ряд */
+    width: 300px;
+    height: 200px;
+    margin: 20px; /* Зовнішній відступ */
+    padding: 15px; /* Внутрішній відступ */
+    box-sizing: border-box; /* Щоб відступи не ламали розмір 300х200 */
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    vertical-align: top;
+    text-align: left;
+}
+
+/* --- БЛОК 1: Діагональні смуги з чіткими межами --- */
+section > div:nth-of-type(1) {
+    background: linear-gradient(45deg, #1d3557 50%, #457b9d 50%);
+    background-size: 40px 40px;
+}
+
+/* --- БЛОК 2: Фон у вигляді клітинок (два лінійних градієнти під 90 градусів) --- */
+section > div:nth-of-type(2) {
+    background-image:
+            linear-gradient(to right, rgba(230, 57, 70, 0.4) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(230, 57, 70, 0.4) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-color: #f1faee;
+    color: #1d3557;
+}
+
+/* --- БЛОК 3: Радіальний градієнт форми circle з точкою 30px 20px --- */
+section > div:nth-of-type(3) {
+    background: radial-gradient(circle farthest-corner at 30px 20px, #ffb703 0%, #fb8500 50%, #219ebc 100%);
+}
+
+/* --- БЛОК 4: Напівпрозорий градієнт поверх суцільного фону притиснутий донизу --- */
+section > div:nth-of-type(4) {
+    background-color: #33bbf1;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 50%;
+}
+/* ==========================================================================
+   Стилі для Завдання 5
+   ========================================================================== */
+
+/* --- Налаштування Частини 1 (box-sizing) --- */
+/* Обгортка селектора, щоб відокремити блоки Завдання 5 від Завдання 4 */
+body > section > div {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid #1d3557;
+    display: inline-block;
+    margin: 20px;
+    background-color: #a8dadc;
+    color: #1d3557;
+    vertical-align: top;
+    text-shadow: none; /* скидання тіні від попереднього завдання */
+}
+
+/* Перший блок - контентна модель */
+body > section > div:nth-of-type(1) {
+    box-sizing: content-box;
+}
+
+/* Другий блок - бордерна модель */
+body > section > div:nth-of-type(2) {
+    box-sizing: border-box;
+}
+
+
+/* --- Налаштування Частини 2 (overflow) --- */
+article {
+    margin: 20px 0;
+}
+
+article > div {
+    width: 220px;
+    max-height: 80px;
+    border: 2px solid #e63946;
+    background-color: #f1faee;
+    color: #333;
+    display: inline-block;
+    margin: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    vertical-align: top;
+    font-family: sans-serif;
+    font-size: 13px;
+}
+
+/* Призначення властивостей overflow кожному з чотирьох блоків відповідно */
+article > div:nth-of-type(1) { overflow: visible; }
+article > div:nth-of-type(2) { overflow: hidden;  }
+article > div:nth-of-type(3) { overflow: scroll;  }
+article > div:nth-of-type(4) { overflow: auto;    }
+
+
+/* --- Налаштування Частини 3 (display - меню) --- */
+nav ul {
+    list-style-type: none; /* Приховуємо маркери списку */
+    padding: 0;
+    margin: 20px;
+    background-color: #457b9d;
+    display: inline-block;
+}
+
+nav ul li {
+    display: inline-block; /* Перетворюємо елементи списку на горизонтальний ряд */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    display: block; /* Посилання на всю ширину та висоту li */
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    background-color: #1d3557;
+}
+
+/* Приховування третього пункту меню за допомогою display: none */
+nav ul li:nth-child(3) {
+    display: none;
+
+}
+/* ==========================================================================
+   Стилі для Завдання 6
+   ========================================================================== */
+
+/* --- Фон сторінки (body) --- */
+body {
+    background-color: #1b2a41; /* Запасний колір фону */
+    background-image: url('img/bg.jpg'); /* Вкажіть шлях до вашої фонової картинки */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* --- Контейнер (main) --- */
+.container {
+    box-sizing: border-box;
+    max-width: 900px;
+    min-width: 320px;
+    margin: 40px auto; /* Центрування по горизонталі */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85); /* Напівпрозорий білий фон */
+    color: #333;
+    font-family: Arial, sans-serif;
+    border-radius: 8px;
+}
+
+
+/* --- Блок «Теги» (display) --- */
+.display-demo {
+    margin-bottom: 30px;
+}
+
+.inline-div {
+    display: inline; /* Перетворення блочного div на рядковий */
+    width: 200px;    /* Не діє! */
+    height: 100px;   /* Не діє! */
+    background-color: #e63946;
+    color: white;
+    margin: 5px;
+    padding: 5px;
+}
+
+
+.block-span-wrapper {
+    margin-top: 20px;
+}
+
+.block-span {
+    display: block; /* Перетворення рядкового span на блочний */
+    width: 150px;   /* Працює! */
+    background-color: #457b9d;
+    color: white;
+    margin: 5px 0;
+    padding: 10px;
+}
+/* Перевірка: Елементи span з display: block успішно вишикувалися в стовпчик і властивість width діє */
+
+
+/* --- Блок «Повторення фону» (background-repeat) --- */
+.repeat-demo > div {
+    display: inline-block;
+    width: 180px;
+    height: 200px;
+    border: 1px solid #333;
+    margin: 10px;
+    background-image: url('img/pattern.png'); /* Вкажіть шлях до маленької іконки */
+    background-size: 60px 60px;
+    background-color: #f1faee;
+    vertical-align: top;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.rep-x { background-repeat: repeat-x; }
+.rep-y { background-repeat: repeat-y; }
+.spc   { background-repeat: space; }
+.rnd   { background-repeat: round; }
+
+
+/* --- Блок «Масштабування» (background-size) --- */
+.size-demo > div {
+    display: inline-block;
+    width: 300px;
+    height: 200px;
+    border: 2px solid white;
+    margin: 10px;
+    background-image: url('img/bg.jpg'); /* Використовуємо однакове зображення */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #ccc;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.sz-contain { background-size: contain; }
+.sz-cover   { background-size: cover; }
+
+
+/* --- Блок «Прокручування фону» (background-attachment) --- */
+.attachment-demo > div {
+    display: inline-block;
+    width: 300px;
+    height: 150px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #333;
+    background-color: #f1faee;
+    background-image: url('img/pattern.png');
+    background-size: 50px 50px;
+    box-sizing: border-box;
+    overflow: auto; /* Дозволяє внутрішнє прокручування */
+}
+
+.att-scroll {
+    background-attachment: scroll;
+}
+
+.att-local {
+    background-attachment: local;
+}
+
