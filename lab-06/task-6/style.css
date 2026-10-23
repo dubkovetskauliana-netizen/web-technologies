@@ -1,0 +1,200 @@
+:root {
+    --gray-bg: #ffffff;
+    --app-hover-bg: rgba(68, 138, 255, 0.08);
+    --border-radius-base: 8px;
+    --transition-speed: 0.2s;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f3f4;
+    margin: 0;
+    padding: 0;
+}
+
+.google-header {
+    height: 60px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 20px;
+    gap: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.header-link {
+    color: #5f6368;
+    text-decoration: none;
+    font-size: 14px;
+}
+.icon-link {
+    font-size: 18px;
+}
+
+.user-avatar img {
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.popup-checkbox,
+.more-checkbox {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    width: 0;
+    height: 0;
+}
+
+.popup-button {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background var(--transition-speed);
+}
+.main-icon-btn {
+    font-size: 24px;
+    color: #5f6368;
+    line-height: 1;
+}
+
+.popup-button:hover {
+    background-color: rgba(60, 64, 67, 0.08);
+}
+
+.popup-button:focus,
+.app-item:focus,
+.btn-more:focus {
+    outline: 2px solid #4285f4;
+    background-color: rgba(66, 133, 244, 0.15);
+}
+
+/* КОНТЕЙНЕР ПОПАПУ */
+.popup-dropdown {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 15px;
+    width: 320px;
+    max-height: 450px;
+    background-color: var(--gray-bg);
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    padding: 15px;
+    box-sizing: border-box;
+    z-index: 100;
+    overflow-y: hidden;
+}
+
+.popup-checkbox:checked ~ .popup-dropdown {
+    display: block;
+}
+
+/* Гнучка сітка макета */
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.app-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px 5px;
+    border-radius: var(--border-radius-base);
+    transition: background var(--transition-speed);
+    border: 1px solid transparent;
+    box-sizing: border-box;
+}
+
+.app-item:hover {
+    background-color: var(--app-hover-bg);
+    border: 1px solid #e0e0e0;
+}
+
+/* Обмежуємо точний розмір символу-іконки */
+.app-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.app-name {
+    font-size: 13px;
+    color: #202124;
+    text-align: center;
+}
+
+/* ДОДАТКОВІ ІКОНКИ */
+.more-apps-container {
+    display: none;
+    margin-top: 15px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 15px;
+}
+
+.btn-more {
+    display: block;
+    text-align: center;
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    color: #1a73e8;
+    padding: 8px 0;
+    margin-top: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.btn-more:hover {
+    background-color: #f1f3f4;
+}
+
+.more-checkbox:checked ~ .more-apps-container {
+    display: block;
+}
+
+.more-checkbox:checked ~ .btn-more {
+    display: none;
+}
+
+.popup-checkbox:checked ~ .popup-dropdown:has(.more-checkbox:checked) {
+    overflow-y: auto;
+    max-height: 380px;
+}
+
+/* Скролбар під Chrome */
+.popup-dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+.popup-dropdown::-webkit-scrollbar-track {
+    background: #f1f3f4;
+}
+.popup-dropdown::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.more-footer {
+    text-align: center;
+    padding: 15px 0 5px;
+}
+.more-footer-link {
+    color: #5f6368;
+    font-size: 12px;
+    text-decoration: none;
+}
+.more-footer-link:hover {
+    text-decoration: underline;
+}

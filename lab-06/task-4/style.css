@@ -1,0 +1,233 @@
+/* ==========================================
+   ГЛОБАЛЬНІ НАЛАШТУВАННЯ ТА ЗМІННІ
+   ========================================== */
+:root {
+    --nav-bg: #0070c0;            /* Основний синій колір меню з макета */
+    --nav-hover: #0056a0;         /* Колір при наведенні */
+    --nav-active: #004580;        /* Колір активного пункту */
+    --text-color: #ffffff;
+    --border-color: rgba(255, 255, 255, 0.2);
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 60px;            /* Відступ зверху, щоб фіксоване меню не перекривало контент */
+    background-color: #f4f6f9;
+}
+
+/* ==========================================
+   1. ГОРИЗОНТАЛЬНЕ МЕНЮ (Fixed & Sticky)
+   ========================================== */
+.nav-horizontal {
+    position: fixed;              /* Фіксація у верхній частині сторінки */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--nav-bg);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    /* Альтернативно, для ефекту sticky, якщо прибрати top/left/fixed: */
+    position: sticky;
+    top: 0;
+}
+
+.menu-h {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Забезпечуємо роботу float всередині списку */
+.menu-h::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.menu-h > li {
+    float: left;                  /* Розташування елементів в один ряд */
+    position: relative;           /* База для випадного підменю */
+}
+
+/* Вирівнювання останнього пункту меню справа через float */
+.menu-h > li.menu-h-right {
+    float: right;
+}
+
+.menu-h a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 0 25px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background var(--transition-speed);
+}
+
+/* Відображення активного стану та :hover */
+.menu-h li:hover > a,
+.menu-h li.active > a {
+    background-color: var(--nav-hover);
+}
+
+/* --- СТИЛІЗАЦІЯ ВИПАДНИХ МЕНЮ (ГОРИЗОНТАЛЬНЕ) --- */
+.submenu-level-1,
+.submenu-level-2 {
+    display: none;                /* Приховуємо підменю за замовчуванням */
+    position: absolute;
+    background-color: var(--nav-bg);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Позиція 2-го рівня (падає вниз) */
+.submenu-level-1 {
+    top: 60px;
+    left: 0;
+}
+
+/* Позиція 3-го рівня (випадає вбік праворуч) */
+.submenu-level-2 {
+    top: 0;
+    left: 100%;
+}
+
+.submenu-level-1 li,
+.submenu-level-2 li {
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.submenu-level-1 a,
+.submenu-level-2 a {
+    height: auto;
+    padding: 12px 20px;
+    justify-content: flex-start;
+    font-size: 14px;
+}
+
+/* Поява меню 2-го та 3-го рівнів при наведенні */
+.menu-h li:hover > .submenu-level-1,
+.submenu-level-1 li:hover > .submenu-level-2 {
+    display: block;
+}
+
+
+/* ==========================================
+   СТРУКТУРА СТОРІНКИ ТА ВЕРТИКАЛЬНЕ МЕНЮ
+   ========================================== */
+.page-container {
+    display: flex;
+}
+
+/* 2. ВЕРТИКАЛЬНА НАВІГАЦІЙНА ПАНЕЛЬ (Повна висота) */
+.nav-vertical {
+    width: 260px;
+    background-color: var(--nav-bg);
+    /* Обчислюємо повну висоту екрана мінус висота горизонтального меню */
+    height: calc(100vh - 60px);
+    position: fixed;
+    left: 0;
+    top: 60px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.menu-v {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-v > li {
+    position: relative;           /* База для випадного підменю вбік */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.menu-v a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background var(--transition-speed);
+}
+
+.menu-v a i {
+    margin-right: 15px;           /* Відступ між іконкою та текстом */
+}
+
+/* Відображення активного стану та :hover */
+.menu-v li:hover > a,
+.menu-v li.active > a {
+    background-color: var(--nav-hover);
+}
+
+/* --- СТИЛІЗАЦІЯ ВИПАДНИХ МЕНЮ (ВЕРТИКАЛЬНЕ) --- */
+.submenu-v-level-1,
+.submenu-v-level-2 {
+    display: none;
+    position: absolute;
+    background-color: var(--nav-bg);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 220px;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+/* 2-й рівень вертикального меню випадає праворуч */
+.submenu-v-level-1 {
+    top: 0;
+    left: 100%;
+}
+
+/* 3-й рівень також випадає далі праворуч */
+.submenu-v-level-2 {
+    top: 0;
+    left: 100%;
+}
+
+.submenu-v-level-1 li,
+.submenu-v-level-2 li {
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.submenu-v-level-1 a,
+.submenu-v-level-2 a {
+    padding: 12px 20px;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+/* Поява рівнів при наведенні для вертикального меню */
+.menu-v li:hover > .submenu-v-level-1,
+.submenu-v-level-1 li:hover > .submenu-v-level-2 {
+    display: block;
+}
+
+
+/* ==========================================
+   ЗОНА КОНТЕНТУ (Зсув вправо через фіксоване меню)
+   ========================================== */
+.main-content {
+    margin-left: 280px;           /* Відступ ліворуч, щоб звільнити місце для бокового меню */
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.spacer {
+    height: 1200px;               /* Штучна висота для створення скролу на сторінці */
+    background: linear-gradient(to bottom, #e2e2e2, #ffffff);
+    margin: 20px 0;
+    border-radius: 8px;
+}

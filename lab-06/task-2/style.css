@@ -1,0 +1,72 @@
+/* ==========================================
+   НАЛАШТУВАННЯ ТА ЗМІННІ ДЛЯ ЗАВДАННЯ 2
+   ========================================== */
+:root {
+    --t2-green: #00b050;
+    --t2-blue: #4f81bd;
+    --t2-width: 150px;       /* Ширина однієї колонки */
+    --t2-speed: 0.3s;        /* Швидкість плавної появи (легко змінити на 0s, якщо треба миттєво) */
+}
+
+/* Головна обгортка для вирівнювання трьох блоків в один ряд */
+.task-2-wrapper {
+    display: flex;
+    gap: 20px;               /* Відступ між колонками */
+    justify-content: center;
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+/* Контейнер-пари (Блок 1 + Блок 2) */
+.interactive-pair {
+    position: relative;      /* База для точного абсолютного позиціонування Блоку 2 */
+    width: var(--t2-width);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Спільні базові стилі для Блоку 1 та Блоку 2 */
+.block-1, .block-2 {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    border: 2px solid #222222;
+}
+
+/* Нижній зелений блок (Блок 1) - завжди видимий */
+.block-1 {
+    background-color: var(--t2-green);
+    height: 50px;
+    font-size: 14px;
+}
+
+/* Верхній синій блок (Блок 2) - прихований за замовчуванням */
+.block-2 {
+    position: absolute;
+    bottom: 55px;            /* Позиціонуємо чітко НАД Блоком 1 (висота блоку 50px + відступ 5px) */
+    left: 0;
+    background-color: var(--t2-blue);
+    height: 120px;
+    font-size: 14px;
+    padding: 10px;
+
+    /* Магія приховування та плавної появи */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--t2-speed) ease, visibility var(--t2-speed) ease;
+}
+
+/* ==========================================
+   ЛОГІКА ІНТЕРАКТИВНОСТІ (:hover)
+   ========================================== */
+/* Коли ми наводимо курсор на пару, Блок 2 всередині неї плавно з'являється */
+.interactive-pair:hover .block-2 {
+    opacity: 1;
+    visibility: visible;
+}

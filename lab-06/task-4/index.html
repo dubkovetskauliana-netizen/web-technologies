@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №6 - Завдання 4</title>
+    <!-- Підключаємо іконки Google Fonts Icons -->
+    <link rel="stylesheet" href="https://googleapis.com">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 1. ГОРИЗОНТАЛЬНА НАВІГАЦІЙНА ПАНЕЛЬ (Фіксована / Sticky) -->
+<nav class="nav-horizontal">
+    <ul class="menu-h">
+        <li class="active">
+            <a href="#"><i class="material-icons">home</i></a>
+        </li>
+        <li>
+            <a href="#"><i class="material-icons">search</i></a>
+            <!-- 2-й рівень -->
+            <ul class="submenu-level-1">
+                <li><a href="#">Пошук товарів</a></li>
+                <li>
+                    <a href="#">Розширений пошук ➔</a>
+                    <!-- 3-й рівень -->
+                    <ul class="submenu-level-2">
+                        <li><a href="#">За категоріями</a></li>
+                        <li><a href="#">За тегами</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Історія пошуку</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="material-icons">email</i></a>
+            <!-- 2-й рівень -->
+            <ul class="submenu-level-1">
+                <li><a href="#">Вхідні</a></li>
+                <li><a href="#">Надіслані</a></li>
+            </ul>
+        </li>
+        <!-- Останній пункт меню, вирівняний справа через float -->
+        <li class="menu-h-right">
+            <a href="#"><i class="material-icons">account_circle</i></a>
+            <ul class="submenu-level-1">
+                <li><a href="#">Профіль</a></li>
+                <li><a href="#">Налаштування</a></li>
+                <li><a href="#">Вихід</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<!-- КОНТЕНТ СТОРІНКИ ДЛЯ ДЕМОНСТРАЦІЇ ФІКСАЦІЇ ТА STICKY -->
+<div class="page-container">
+
+    <!-- 2. ВЕРТИКАЛЬНА НАВІГАЦІЙНА ПАНЕЛЬ (Повна висота) -->
+    <aside class="nav-vertical">
+        <ul class="menu-v">
+            <li class="active">
+                <a href="#"><i class="material-icons">home</i> Home</a>
+            </li>
+            <li>
+                <a href="#"><i class="material-icons">assignment</i> About</a>
+                <!-- 2-й рівень -->
+                <ul class="submenu-v-level-1">
+                    <li><a href="#">Наша команда</a></li>
+                    <li>
+                        <a href="#">Історія компанії ➔</a>
+                        <!-- 3-й рівень -->
+                        <ul class="submenu-v-level-2">
+                            <li><a href="#">Заснування</a></li>
+                            <li><a href="#">Наші дні</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Вакансії</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="material-icons">local_cafe</i> Work With Me</a>
+                <!-- 2-й рівень -->
+                <ul class="submenu-v-level-1">
+                    <li><a href="#">Послуги</a></li>
+                    <li><a href="#">Консалтинг</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Основна контентна зона для прокручування -->
+    <main class="main-content">
+        <h2>Демонстрація роботи позиціонування</h2>
+        <p>Прокрутіть сторінку вниз, щоб побачити ефект фіксації горизонтального меню.</p>
+        <div class="spacer"></div>
+        <p>Нижня частина сторінки для перевірки прокрутки.</p>
+    </main>
+
+</div>
+
+</body>
+</html>

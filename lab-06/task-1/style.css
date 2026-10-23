@@ -1,0 +1,84 @@
+/* ==========================================
+   ГЛОБАЛЬНІ НАЛАШТУВАННЯ ТА CSS-ЗМІННІ
+   ========================================== */
+:root {
+    /* Кольори макета (легко змінити в один клік) */
+    --bg-green: #00b050;
+    --bg-blue: #4f81bd;
+    --text-white: #ffffff;
+    --border-color: #222222;
+
+    /* Параметри головного контейнера */
+    --container-width: 650px;
+    --container-height: 380px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    margin: 0;
+}
+
+/* Загальний батьківський контейнер-рамка */
+.variant-container {
+    position: relative; /* База для абсолютного позиціонування елементів всередині */
+    width: var(--container-width);
+    height: var(--container-height);
+    border: 4px solid #333333;
+    background-color: #ffffff;
+}
+
+/* Загальний базовий клас для всіх карток-блоків */
+.card {
+    position: absolute; /* Вириваємо блоки з потоку */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    color: var(--text-white);
+    font-weight: bold;
+    font-size: 16px;
+    border: 2px solid var(--border-color);
+}
+
+/* Оформлення кольорів */
+.card-green { background-color: var(--bg-green); }
+.card-blue  { background-color: var(--bg-blue); }
+
+
+/* ==========================================
+   ТОЧНЕ ПОЗИЦІОНУВАННЯ ДЛЯ ВАРІАНТА 5
+   ========================================== */
+
+/* Лівий зелений блок (нижній шар) */
+.block-1 {
+    top: 110px;
+    left: 20px;
+    width: 260px;
+    height: 160px;
+    z-index: 1; /* Має менший пріоритет, тому опиниться знизу */
+}
+
+/* Правий верхній синій блок (верхній шар) */
+.block-2 {
+    top: 30px;
+    left: 250px; /* Зсув ліворуч на 250px створює накладання поверх зеленого блоку */
+    width: 360px;
+    height: 140px;
+    z-index: 2; /* Перекриває зелений блок */
+}
+
+/* Правий нижній синій блок (верхній шар) */
+.block-3 {
+    top: 210px;
+    left: 250px; /* Симетричний зсув ліворуч */
+    width: 360px;
+    height: 140px;
+    z-index: 2; /* Перекриває зелений блок */
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №6 - Завдання 5</title>
+    <!-- Підключаємо іконки Google для стрілочок ліворуч/праворуч -->
+    <link rel="stylesheet" href="https://googleapis.com">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Головний багатошаровий віджет погоди -->
+<div class="weather-widget">
+
+    <!-- 1. Верхній блок: фонове зображення або градієнт із великою цифрою -->
+    <div class="widget-header">
+        <!-- Велика хмаринка, що виступає за межі картки -->
+        <img class="weather-cloud" src="https://codepen.io" alt="Cloud">
+
+        <!-- Стрілки перемикання (слайдер) -->
+        <div class="widget-nav">
+            <button class="nav-btn"><i class="material-icons">arrow_back</i></button>
+            <button class="nav-btn"><i class="material-icons">arrow_forward</i></button>
+        </div>
+
+        <!-- Головна температура дня -->
+        <div class="main-temp">17</div>
+    </div>
+
+    <!-- 2. Нижня панель: прогноз погоди на тиждень (прозорий фон) -->
+    <div class="widget-forecast">
+        <div class="forecast-day">
+            <span class="day-name">Mon</span>
+            <span class="day-temp">17°</span>
+        </div>
+        <div class="forecast-day">
+            <span class="day-name">Tue</span>
+            <span class="day-temp">19°</span>
+        </div>
+        <div class="forecast-day">
+            <span class="day-name">Wed</span>
+            <span class="day-temp">16°</span>
+        </div>
+        <div class="forecast-day">
+            <span class="day-name">Thu</span>
+            <span class="day-temp">18°</span>
+        </div>
+        <div class="forecast-day">
+            <span class="day-name">Fri</span>
+            <span class="day-temp">21°</span>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

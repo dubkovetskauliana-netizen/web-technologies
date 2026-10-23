@@ -1,0 +1,163 @@
+/* ==========================================
+   ГЛОБАЛЬНІ НАЛАШТУВАННЯ ТА CSS-ЗМІННІ
+   ========================================== */
+:root {
+    --widget-width: 350px;
+    --main-bg: #2b2b2b;          /* Темний стильний фон для картки */
+    --header-bg: #1a1a1a;        /* Глибокий темний для верхнього блоку */
+    --text-main: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.6);
+    --accent-shadow: rgba(0, 0, 0, 0.3);
+
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef2f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* ==========================================
+   ОСНОВНИЙ КОНТЕЙНЕР ВІДЖЕТА
+   ========================================== */
+.weather-widget {
+    width: var(--widget-width);
+    background-color: var(--main-bg);
+    border-radius: 16px;
+    box-shadow: 0 15px 35px var(--accent-shadow);
+    overflow: visible;           /* Дозволяє хмаринці виходити за межі віджета зверху та збоку */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================
+   ВЕРХНІЙ БЛОК (Картка з температурою та хмарою)
+   ========================================== */
+.widget-header {
+    position: relative;
+    height: 220px;
+    background-color: var(--header-bg);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    z-index: 2;                  /* Робимо вище за нижню панель */
+}
+
+/* Елемент ХМАРИНКИ (Позиціонування та накладання) */
+.weather-cloud {
+    position: absolute;
+    top: -40px;                  /* Виштовхуємо хмаринку вгору за межі блоку */
+    right: -30px;                /* Зсуваємо вбік праворуч */
+    width: 240px;
+    height: auto;
+    z-index: 3;                  /* Лягає поверх усього в шапці віджета */
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+}
+
+/* Кнопки навігації (Слайдер) */
+.widget-nav {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    z-index: 4;
+    display: flex;
+    gap: 8px;
+}
+
+.nav-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-main);
+    border-radius: 6px;
+    width: 40px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.nav-btn:active {
+    transform: scale(0.95);
+}
+
+/* Велика цифра градусів */
+.main-temp {
+    position: absolute;
+    bottom: 15px;
+    left: 25px;
+    font-size: 76px;
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1;
+    letter-spacing: -2px;
+    z-index: 4;
+}
+
+/* Псевдоелемент значка градуса після великої цифри */
+.main-temp::after {
+    content: '°';
+    font-size: 45px;
+    position: absolute;
+    top: 5px;
+    right: -25px;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* ==========================================
+   НИЖНЯ ПАНЕЛЬ (Прогноз на 5 днів)
+   ========================================== */
+.widget-forecast {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 25px;
+    background-color: rgba(255, 255, 255, 0.04); /* Напівпрозорий фон */
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    z-index: 1;                  /* Нижній базовий шар віджета */
+}
+
+.forecast-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: transform var(--transition-speed);
+    cursor: pointer;
+}
+
+/* Псевдоклас hover для інтерактивності елементів дня */
+.forecast-day:hover {
+    transform: translateY(-3px);
+}
+
+.day-name {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-transform: capitalize;
+}
+
+.day-temp {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* Застосування псевдокласу положення для виділення сьогоднішнього дня (наприклад, першого у списку) */
+.forecast-day:first-child .day-name {
+    color: #ffd166;              /* Підсвічуємо день жовтуватим */
+    font-weight: bold;
+}
